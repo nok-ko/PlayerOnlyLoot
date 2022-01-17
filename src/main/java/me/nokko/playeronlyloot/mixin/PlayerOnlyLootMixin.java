@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,7 +21,7 @@ public abstract class PlayerOnlyLootMixin extends Entity {
 	@Inject(at = @At("HEAD"), method = "drop(Lnet/minecraft/entity/damage/DamageSource;)V", cancellable = true)
 	private void preventNonPlayerDrops(DamageSource damageSource, CallbackInfo ci) {
 		Entity attacker = damageSource.getAttacker();
-		if (attacker == null || !attacker.isPlayer()) {
+		if (!(attacker instanceof PlayerEntity)) {
 			ci.cancel();
 		}
 	}
