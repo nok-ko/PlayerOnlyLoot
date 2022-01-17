@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "playeronlyloot",
+  "version": "${version}",
+
+  "name": "Player Only Loot",
+  "description": "Prevents all entities (!) from dropping loot, unless killed by a player.",
+  "authors": [
+    "Nokko"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "Mozilla Public License v2.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.nokko.playeronlyloot.PlayerOnlyLoot"
+    ]
+  },
+  "mixins": [
+    "playeronlyloot.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+  }
+}
